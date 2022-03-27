@@ -12,39 +12,52 @@
     />
   </head>
   <body>
-    <div class="d-flex justify-content-center flex-column">
-      <div class="text-center card mt-3 mx-3">
-        <h1>Login</h1>
-      </div>
-      <div class="mx-5 d-flex justify-content-center flex-column">
-        <div class="card p-3 mx-5 my-3">
-          <div class="mb-3">
-            <label for="emailInput" class="form-label">E-mail</label>
-            <input
-              type="email"
-              name="emailInput"
-              id="emailInput"
-              class="form-control"
-              placeholder="email@email.com"
-            />
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <div class="text-center card mt-3 mx-3">
+            <h1>Login</h1>
           </div>
-          <div class="mb-3">
-            <label for="passwordInput" class="form-label">Senha</label>
-            <input
-              type="password"
-              name="passwordInput"
-              id="passwordInput"
-              class="form-control"
-              placeholder="*******"
-            />
-          </div>
-          <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-primary btn-md mx-5">
-              Entrar
-            </button>
+          <div class="mx-5 d-flex justify-content-center flex-column">
+            <div class="card p-5 mx-5 my-5">
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">E-mail</label>
+                <input
+                  type="email"
+                  name="emailInput"
+                  id="emailInput"
+                  class="form-control-lg"
+                  placeholder="email@email.com"
+                  style="border: 1px solid #333"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="passwordInput" class="form-label">Senha</label>
+                <input
+                  type="password"
+                  name="passwordInput"
+                  id="passwordInput"
+                  class="form-control-lg"
+                  placeholder="*******"
+                  style="border: 1px solid #333"
+                />
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg mx-5">
+                  Entrar
+                </button>
+              </div>
+              <hr />
+
+              <p class="text-start">
+                <a class="text-decoration-none" href="#">Recuperar senha</a>
+              </p>
+            </div>
           </div>
         </div>
-        <p class="mx-5"><a href="#">Recuperar senha</a></p>
+        <div class="col"></div>
+      </div>
     </div>
   </body>
 </html>

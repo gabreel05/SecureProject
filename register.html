@@ -17,6 +17,8 @@
   </head>
 
   <body>
+    <script src="register.js"></script>
+
     <form class="form-horizontal">
       <fieldset>
         <!-- Form Name -->
@@ -107,7 +109,7 @@
                 <label class="form-label">Senha</label>
                 <div class="controls">
                   <input
-                    id="senha"
+                    id="inputPassword"
                     name="senha"
                     type="text"
                     placeholder="Insira sua senha"
@@ -177,10 +179,16 @@
               <div class="control-group">
                 <label class="form-label"></label>
                 <div class="controls">
-                  <button id="enviar" name="enviar" class="btn btn-primary">
+                  <button
+                    id="buttonRegister"
+                    onclick="confirmRegister(e)"
+                    name="enviar"
+                    class="btn btn-primary"
+                  >
                     Enviar
                   </button>
                 </div>
+                <div id="registerConfirmation"></div>
               </div>
             </div>
           </div>

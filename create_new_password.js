@@ -9,9 +9,6 @@ window.onload = function () {
   const buttonRegister = document.getElementById("confirmButton");
   const registerConfirmation = document.getElementById("registerConfirmation");
 
-  $("#telefone").mask("(00) 00000-0000");
-  $("#cpf").mask("000.000.000-00");
-
   function handleValidatePassword() {
     if (!numbers.exec(inputPassword.value)) {
       alert("A sua senha precisa ter números");

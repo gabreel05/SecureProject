@@ -47,6 +47,8 @@ window.onload = function () {
     if (handleValidatePassword()) {
       registerConfirmation.innerHTML = "<h1>Sucesso!</h1>";
     }
+
+    window.location.href = "login.html";
   }
 
   buttonRegister.onclick = confirmRegister;

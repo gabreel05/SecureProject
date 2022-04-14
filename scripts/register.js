@@ -6,8 +6,6 @@ window.onload = function () {
   const specialCharacters = /['"!@#$%¨&*()/;\.,<>º{}|\\]/;
 
   const inputPassword = document.getElementById("inputPassword");
-  const buttonRegister = document.getElementById("buttonRegister");
-  const registerConfirmation = document.getElementById("registerConfirmation");
 
   $("#telefone").mask("(00) 00000-0000");
   $("#cpf").mask("000.000.000-00");
@@ -46,11 +44,9 @@ window.onload = function () {
     return true;
   }
 
-  function confirmRegister() {
+  $("#buttonRegister").click(() => {
     if (handleValidatePassword()) {
-      registerConfirmation.innerHTML = "<h1>Sucesso!</h1>";
+      $("#registerConfirmation").html("<h1>Sucesso!</h1>");
     }
-  }
-
-  buttonRegister.onclick = confirmRegister;
+  });
 };

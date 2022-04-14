@@ -44,9 +44,29 @@ window.onload = function () {
     return true;
   }
 
+  function createSession(params) {
+    $.ajax({
+      dataType: "json",
+      type: "POST",
+      url: "../php/session.php",
+      data: {
+        data: params
+      },
+      success: (response) => {
+        console.log(response)
+      }
+    });
+  }
+
+  function sendParams() {
+    createSession($("#telefone").val());
+  }
+
   $("#buttonRegister").click(() => {
     if (handleValidatePassword()) {
       $("#registerConfirmation").html("<h1>Sucesso!</h1>");
+
+      sendParams();
     }
   });
 };

@@ -1,5 +1,11 @@
 <?php
+    $data = $_POST['data'];
+
     session_start();
+
+    $_SESSION['email'] = $data;
+    $_SESSION['session_id'] = session_id();
+    $_SESSION['session_name'] = session_name();
 
     setcookie(session_name(), '', time(), '/');
 

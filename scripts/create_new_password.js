@@ -6,8 +6,6 @@ window.onload = function () {
   const specialCharacters = /['"!@#$%¨&*()/;\.,<>º{}|\\]/;
 
   const inputPassword = document.getElementById("newPassword");
-  const buttonRegister = document.getElementById("confirmButton");
-  const registerConfirmation = document.getElementById("registerConfirmation");
 
   function handleValidatePassword() {
     if (!numbers.exec(inputPassword.value)) {
@@ -43,13 +41,9 @@ window.onload = function () {
     return true;
   }
 
-  function confirmRegister() {
+  $("confirmButton").click(() => {
     if (handleValidatePassword()) {
-      registerConfirmation.innerHTML = "<h1>Sucesso!</h1>";
+      window.location.href = "login.html";
     }
-
-    window.location.href = "login.html";
-  }
-
-  buttonRegister.onclick = confirmRegister;
+  });
 };

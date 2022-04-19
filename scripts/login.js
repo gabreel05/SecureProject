@@ -1,35 +1,28 @@
 window.onload = function () {
-  $("#loginButton").click(function () {
-    sendRequest($("#emailInput").val());
+  const inputEmail = $("#emailInput");
 
-    //window.location.href = "../pages/two-factor.html";
+  $("#loginButton").click(() => {
+    createSession(inputEmail.val());
   });
 
-  function sendRequest(params) {
-    $.ajax({
-      dataType: "JSON",
-      type: "POST",
-      data: {
-        email: params,
-      },
-      url: "../php/token.php",
-      success: function (response) {
-        sendEmail();
-      },
-    });
-  }
+  function createSession(params) {
+    const accounts = JSON.parse(window.localStorage.getItem("accounts"));
 
-  function sendEmail() {
-    $.ajax({
-      dataType: "JSON",
-      type: "POST",
-      data: {
-        email: params,
-      },
-      url: "../php/email.php",
-      success: function (response) {
-        console.log(response);
-      },
-    });
+    const account = accounts.find(
+      (element) => element.email == inputEmail.val()
+    );
+
+    if (account.email == inputEmail.val()) {
+      $.ajax({
+        dataType: "JSON",
+        type: "POST",
+        data: {
+          email: params,
+        },
+        url: "../php/session.php",
+      });
+
+      window.location.href = "../pages/home.html";
+    }
   }
 };

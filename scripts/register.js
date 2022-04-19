@@ -1,27 +1,32 @@
 window.onload = function () {
-  const numbers = /[0-9]/;
-  const minLenght = /[a-zA-Z0-9]{6}/;
-  const lowerCharacters = /[a-z]/;
-  const upperCharacters = /[A-Z]/;
-  const specialCharacters = /['"!@#$%¨&*()/;\.,<>º{}|\\]/;
+  const numbers = /[0-9]/
+  const minLenght = /[a-zA-Z0-9]{6}/
+  const lowerCharacters = /[a-z]/
+  const upperCharacters = /[A-Z]/
+  const specialCharacters = /['"!@#$%¨&*()/;\.,<>º{}|\\]/
 
-  const inputPassword = $("#inputPassword");
-  const inputName = $("#nome");
-  const inputCPF = $("#cpf");
-  const inputAddress = $("#endereço");
-  const inputPhone = $("#telefone");
-  const inputEmail = $("#e-mail");
-  const inputGender = $('.controls input[type="radio"]').val();
-  const inputCountry = $("#pais option:selected").val();
+  const inputPassword = $('#inputPassword')
+  const inputName = $('#nome')
+  const inputCPF = $('#cpf')
+  const inputAddress = $('#endereço')
+  const inputPhone = $('#telefone')
+  const inputEmail = $('#e-mail')
+  const inputGender = $('.controls input[type="radio"]').val()
+  const inputCountry = $('#pais option:selected').val()
 
-  const weakPassword = $("#weakPassword");
+  const weakPassword = $('#weakPassword')
 
-  var accounts = [];
+  var accounts = []
 
-  $("#telefone").mask("(00) 00000-0000");
-  $("#cpf").mask("000.000.000-00");
+  $('#telefone').mask('(00) 00000-0000')
+  $('#cpf').mask('000.000.000-00')
 
   function saveAccount() {
+    const encryptedPassword = password_hash(
+      inputPassword.val(),
+      PASSWORD_DEFAULT
+    )
+
     accounts.push({
       name: inputName.val(),
       CPF: inputCPF.val(),
@@ -30,9 +35,10 @@ window.onload = function () {
       email: inputEmail.val(),
       gender: inputGender,
       country: inputCountry,
-    });
+      password: encryptedPassword
+    })
 
-    window.localStorage.setItem("accounts", JSON.stringify(accounts));
+    window.localStorage.setItem('accounts', JSON.stringify(accounts))
   }
 
   function handleValidatePassword() {
@@ -44,10 +50,10 @@ window.onload = function () {
       !specialCharacters.exec(inputPassword.val())
     ) {
       weakPassword.html(
-        "A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos <br> A sua senha precisa ter caracteres especiais"
-      );
+        'A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos <br> A sua senha precisa ter caracteres especiais'
+      )
 
-      return false;
+      return false
     } else if (
       !numbers.exec(inputPassword.val()) &&
       !minLenght.exec(inputPassword.val()) &&
@@ -55,10 +61,10 @@ window.onload = function () {
       !upperCharacters.exec(inputPassword.val())
     ) {
       weakPassword.html(
-        "A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos"
-      );
+        'A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos'
+      )
 
-      return false;
+      return false
     } else if (
       !numbers.exec(inputPassword.val()) &&
       !minLenght.exec(inputPassword.val()) &&
@@ -66,79 +72,79 @@ window.onload = function () {
       !upperCharacters.exec(inputPassword.val())
     ) {
       weakPassword.html(
-        "A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos"
-      );
+        'A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos'
+      )
 
-      return false;
+      return false
     } else if (
       !numbers.exec(inputPassword.val()) &&
       !minLenght.exec(inputPassword.val())
     ) {
       weakPassword.html(
-        "A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres"
-      );
+        'A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres'
+      )
 
-      return false;
+      return false
     }
 
     if (!numbers.exec(inputPassword.val())) {
-      weakPassword.html("A sua senha precisa ter números");
+      weakPassword.html('A sua senha precisa ter números')
 
-      return false;
+      return false
     }
 
     if (!minLenght.exec(inputPassword.val())) {
-      weakPassword.html("A sua senha precisa ter pelo menos 6 caracteres");
+      weakPassword.html('A sua senha precisa ter pelo menos 6 caracteres')
 
-      return false;
+      return false
     }
 
     if (!lowerCharacters.exec(inputPassword.val())) {
-      weakPassword.html("A sua senha precisa ter caracteres minúsculos");
+      weakPassword.html('A sua senha precisa ter caracteres minúsculos')
 
-      return false;
+      return false
     }
 
     if (!upperCharacters.exec(inputPassword.val())) {
-      weakPassword.html("A sua senha precisa ter caracteres maiúsculos");
+      weakPassword.html('A sua senha precisa ter caracteres maiúsculos')
 
-      return false;
+      return false
     }
 
     if (!specialCharacters.exec(inputPassword.val())) {
-      weakPassword.html("A sua senha precisa ter caracteres especiais");
+      weakPassword.html('A sua senha precisa ter caracteres especiais')
 
-      return false;
+      return false
     }
 
-    return true;
+    return true
   }
 
   function createSession(params) {
     $.ajax({
-      dataType: "json",
-      type: "POST",
-      url: "../php/session.php",
+      dataType: 'json',
+      type: 'POST',
+      url: '../php/session.php',
       data: {
-        data: params,
+        data: params
       },
-      success: (response) => {
-        console.log(response);
-      },
-    });
+      success: response => {
+        console.log(response)
+      }
+    })
   }
 
   function sendParams() {
-    createSession($("#e-mail").val());
+    createSession($('#e-mail').val())
   }
 
-  $("#buttonRegister").click(() => {
+  $('#buttonRegister').click(() => {
     if (handleValidatePassword()) {
-      $("#registerConfirmation").html("<h1>Sucesso!</h1>");
+      $('#registerConfirmation').html('<h1>Sucesso!</h1>')
 
-      saveAccount();
+      saveAccount()
 
-      sendParams();
+      sendParams()
     }
-  });
-};
+  })
+}

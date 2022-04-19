@@ -16,8 +16,8 @@
     $mail->Host = 'smtp.gmail.com'; 
     $mail->Port = 465;
     // Detalhes do envio de E-mail
-    $mail->Username = 'okada.gui@gmail.com'; 
-    $mail->Password = 'mel150209';
+    $mail->Username = 'email'; 
+    $mail->Password = 'senha';
     $mail->SetFrom('okada.gui@gmail.com', 'Guilherme');
     $mail->addAddress('gaguigu321@gmail.com','Gabriel');
     $mail->Subject = 'Test';

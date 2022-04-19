@@ -22,6 +22,9 @@ window.onload = function () {
   $("#cpf").mask("000.000.000-00");
 
   function saveAccount() {
+
+    const senhaCripto = password_hash(inputPassword.val(), PASSWORD_DEFAULT);
+    
     accounts.push({
       name: inputName.val(),
       CPF: inputCPF.val(),
@@ -30,6 +33,8 @@ window.onload = function () {
       email: inputEmail.val(),
       gender: inputGender,
       country: inputCountry,
+      password: senhaCripto 
+      
     });
 
     window.localStorage.setItem("accounts", JSON.stringify(accounts));

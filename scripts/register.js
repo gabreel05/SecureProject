@@ -5,38 +5,108 @@ window.onload = function () {
   const upperCharacters = /[A-Z]/;
   const specialCharacters = /['"!@#$%¨&*()/;\.,<>º{}|\\]/;
 
-  const inputPassword = document.getElementById("inputPassword");
+  const inputPassword = $("#inputPassword");
+  const inputName = $("#nome");
+  const inputCPF = $("#cpf");
+  const inputAddress = $("#endereço");
+  const inputPhone = $("#telefone");
+  const inputEmail = $("#e-mail");
+  const inputGender = $('.controls input[type="radio"]').val();
+  const inputCountry = $("#pais option:selected").val();
+
+  const weakPassword = $("#weakPassword");
+
+  var accounts = [];
 
   $("#telefone").mask("(00) 00000-0000");
   $("#cpf").mask("000.000.000-00");
 
+  function saveAccount() {
+    accounts.push({
+      name: inputName.val(),
+      CPF: inputCPF.val(),
+      address: inputAddress.val(),
+      phone: inputPhone.val(),
+      email: inputEmail.val(),
+      gender: inputGender,
+      country: inputCountry,
+    });
+
+    window.localStorage.setItem("accounts", JSON.stringify(accounts));
+  }
+
   function handleValidatePassword() {
-    if (!numbers.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter números");
+    if (
+      !numbers.exec(inputPassword.val()) &&
+      !minLenght.exec(inputPassword.val()) &&
+      !lowerCharacters.exec(inputPassword.val()) &&
+      !upperCharacters.exec(inputPassword.val()) &&
+      !specialCharacters.exec(inputPassword.val())
+    ) {
+      weakPassword.html(
+        "A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos <br> A sua senha precisa ter caracteres especiais"
+      );
+
+      return false;
+    } else if (
+      !numbers.exec(inputPassword.val()) &&
+      !minLenght.exec(inputPassword.val()) &&
+      !lowerCharacters.exec(inputPassword.val()) &&
+      !upperCharacters.exec(inputPassword.val())
+    ) {
+      weakPassword.html(
+        "A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos"
+      );
+
+      return false;
+    } else if (
+      !numbers.exec(inputPassword.val()) &&
+      !minLenght.exec(inputPassword.val()) &&
+      !lowerCharacters.exec(inputPassword.val()) &&
+      !upperCharacters.exec(inputPassword.val())
+    ) {
+      weakPassword.html(
+        "A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres <br> A sua senha precisa ter caracteres minúsculos <br> A sua senha precisa ter caracteres maiúsculos"
+      );
+
+      return false;
+    } else if (
+      !numbers.exec(inputPassword.val()) &&
+      !minLenght.exec(inputPassword.val())
+    ) {
+      weakPassword.html(
+        "A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres"
+      );
 
       return false;
     }
 
-    if (!minLenght.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter pelo menos 6 caracteres");
+    if (!numbers.exec(inputPassword.val())) {
+      weakPassword.html("A sua senha precisa ter números");
 
       return false;
     }
 
-    if (!lowerCharacters.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter caracteres minúsculos");
+    if (!minLenght.exec(inputPassword.val())) {
+      weakPassword.html("A sua senha precisa ter pelo menos 6 caracteres");
 
       return false;
     }
 
-    if (!upperCharacters.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter caracteres maiúsculos");
+    if (!lowerCharacters.exec(inputPassword.val())) {
+      weakPassword.html("A sua senha precisa ter caracteres minúsculos");
 
       return false;
     }
 
-    if (!specialCharacters.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter caracteres especiais");
+    if (!upperCharacters.exec(inputPassword.val())) {
+      weakPassword.html("A sua senha precisa ter caracteres maiúsculos");
+
+      return false;
+    }
+
+    if (!specialCharacters.exec(inputPassword.val())) {
+      weakPassword.html("A sua senha precisa ter caracteres especiais");
 
       return false;
     }
@@ -50,21 +120,23 @@ window.onload = function () {
       type: "POST",
       url: "../php/session.php",
       data: {
-        data: params
+        data: params,
       },
       success: (response) => {
-        console.log(response)
-      }
+        console.log(response);
+      },
     });
   }
 
   function sendParams() {
-    createSession($("#telefone").val());
+    createSession($("#e-mail").val());
   }
 
   $("#buttonRegister").click(() => {
     if (handleValidatePassword()) {
       $("#registerConfirmation").html("<h1>Sucesso!</h1>");
+
+      saveAccount();
 
       sendParams();
     }

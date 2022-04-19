@@ -1,6 +1,11 @@
 window.onload = function () {
   $("#loginButton").click(function () {
-    sendRequest($("#emailInput").val());
+    if (password_verify('#passwordInput', $encryptedPassword)){
+      sendRequest($("#emailInput").val());
+    }else{
+      alert("Senha ou login incorretos");
+    }
+    
 
     //window.location.href = "../pages/two-factor.html";
   });

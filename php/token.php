@@ -1,5 +1,5 @@
 <?php 
-  $email = $_POST['data'];
+  $email = $_POST['email'];
 
   echo json_encode($email);
 ?>

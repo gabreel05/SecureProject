@@ -23,7 +23,7 @@ window.onload = function () {
 
   function saveAccount() {
 
-    const senhaCripto = password_hash(inputPassword.val(), PASSWORD_DEFAULT);
+    const encryptedPassword = password_hash(inputPassword.val(), PASSWORD_DEFAULT);
     
     accounts.push({
       name: inputName.val(),
@@ -33,7 +33,7 @@ window.onload = function () {
       email: inputEmail.val(),
       gender: inputGender,
       country: inputCountry,
-      password: senhaCripto 
+      password: encryptedPassword 
       
     });
 

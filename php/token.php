@@ -1,11 +1,10 @@
 <?php
+  
+
+  $timeSession = 60 * 60;
+  
+  session_set_cookie_params($timeSession);
   session_start();
 
-  $email = $_POST['email'];
-
-  $_SESSION['email'] = $email;
-
-  echo json_encode($email);
-
-  echo json_encode($_SESSION['email']);
+  $_SESSION['email'] = $_POST['email'];
 ?>

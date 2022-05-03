@@ -1,18 +1,18 @@
 window.onload = function () {
   const inputEmail = $("#emailInput");
-
+  
   $("#loginButton").click(() => {
     createSession(inputEmail.val());
   });
 
   function createSession(params) {
-    const accounts = JSON.parse(window.localStorage.getItem("accounts"));
+    const accounts  = JSON.parse(window.localStorage.getItem("accounts"));
 
-    const account = accounts.find(
-      (element) => element.email == inputEmail.val()
-    );
+    const account = accounts.find(element => element.email === inputEmail.val());
 
-    if (account.email == inputEmail.val()) {
+
+// caso não ache o email ele retorna undefined a const account
+    if (account != "undefined") {
       $.ajax({
         dataType: "JSON",
         type: "POST",

@@ -9,6 +9,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+	<link href="css/styles.css" rel="stylesheet" />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -29,18 +30,16 @@
   </head>
 
   <body>
-    <fieldset>
-      <!-- Form Name -->
 
-      <!-- Text input-->
-      <div class="container mt-3">
-        <legend class="mb-3">Formulário de Cadastro de Usuário</legend>
+   <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="media/bg.mp4" type="video/mp4" />
+  </video>
+  <div class="mx-5 d-flex justify-content-center flex-column masthead">
+      <div class="col-sm-5">
 
-        <div class="row">
-          <div class="col-sm-5">
-            <div class="control-group">
+            <div class="campos">
               <label class="form-label">Nome Completo</label>
-              <div class="controls">
+
                 <input
                   id="nome"
                   name="nome"
@@ -50,13 +49,10 @@
                   required
                 />
                 <p class="help-block">* Campo Obrigatório</p>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="form-label">CPF</label>
-              <div class="controls">
-                <input
+				</div>
+				<div class="campos">
+				 <label class="form-label">CPF</label>
+				                <input
                   id="cpf"
                   name="cpf"
                   type="text"
@@ -64,11 +60,10 @@
                   class="form-control"
                   required
                 />
-                <p class="help-block">* Campo Obrigatório</p>
-              </div>
             </div>
 
-            <div class="control-group">
+
+            <div class="campos">
               <label class="form-label">Endereço</label>
               <div class="controls">
                 <input
@@ -83,7 +78,7 @@
               </div>
             </div>
 
-            <div class="control-group">
+            <div class="campos">
               <label class="form-label">Telefone</label>
               <div class="controls">
                 <input
@@ -98,7 +93,7 @@
               </div>
             </div>
 
-            <div class="control-group">
+            <div class="campos">
               <label class="form-label">E-mail</label>
               <div class="controls">
                 <input
@@ -114,7 +109,7 @@
             </div>
           </div>
           <div class="col-sm-5">
-            <div class="control-group">
+            <div class="campos">
               <label class="form-label">Senha</label>
               <div class="controls">
                 <input
@@ -131,7 +126,7 @@
             </div>
 
             <!-- Multiple Radios -->
-            <div class="control-group">
+            <div class="campos">
               <label class="form-label">Sexo</label>
               <div class="controls">
                 <label class="radio">
@@ -157,7 +152,7 @@
             </div>
 
             <!-- Select Basic -->
-            <div class="control-group mt-3">
+            <div class="campos mt-3">
               <label class="form-label">País</label>
               <div class="controls">
                 <select id="pais" name="pais" class="form-select">
@@ -173,7 +168,7 @@
             </div>
 
             <!-- File Button -->
-            <div class="control-group mt-3">
+            <div class="campos mt-3">
               <label class="form-label">Currículo</label>
               <div class="controls">
                 <input
@@ -186,7 +181,7 @@
             </div>
 
             <!-- Button -->
-            <div class="control-group">
+            <div class="campos">
               <label class="form-label"></label>
               <div class="controls">
                 <button
@@ -199,9 +194,7 @@
               </div>
               <div id="registerConfirmation"></div>
             </div>
-          </div>
-        </div>
       </div>
-    </fieldset>
+	  </div>
   </body>
 </html>

@@ -12,7 +12,7 @@ window.onload = function () {
 
 
 // caso não ache o email ele retorna undefined a const account
-    if (account != "undefined") {
+    if (account != null) {
       $.ajax({
         dataType: "JSON",
         type: "POST",

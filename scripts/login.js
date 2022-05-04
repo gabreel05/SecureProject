@@ -12,17 +12,19 @@ window.onload = function () {
 
 
 // caso não ache o email ele retorna undefined a const account
-    if (account != null) {
       $.ajax({
         dataType: "JSON",
         type: "POST",
         data: {
           email: params,
         },
-        url: "../php/session.php",
+        url: "../php/select.php",
+        success: function (res) {
+          console.log(res)
+        }
       });
 
-      window.location.href = "../pages/home.html";
-    }
+      // 
+    
   }
 };

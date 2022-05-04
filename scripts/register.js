@@ -1,4 +1,6 @@
 window.onload = function () {
+  debugger;
+
   const numbers = /[0-9]/
   const minLenght = /[a-zA-Z0-9]{6}/
   const lowerCharacters = /[a-z]/
@@ -21,13 +23,7 @@ window.onload = function () {
   $('#telefone').mask('(00) 00000-0000')
   $('#cpf').mask('000.000.000-00')
 
-  function saveAccount() {
-    const encryptedPassword = password_hash(
-      inputPassword.val(),
-      PASSWORD_DEFAULT
-    )
-
-    accounts.push({
+  function saveAccount() {    accounts.push({
       name: inputName.val(),
       CPF: inputCPF.val(),
       address: inputAddress.val(),
@@ -35,7 +31,7 @@ window.onload = function () {
       email: inputEmail.val(),
       gender: inputGender,
       country: inputCountry,
-      password: encryptedPassword
+      password: inputPassword.val()
     })
 
     window.localStorage.setItem('accounts', JSON.stringify(accounts))
@@ -44,7 +40,7 @@ window.onload = function () {
   function handleValidatePassword() {
     if (
       !numbers.exec(inputPassword.val()) &&
-      !minLenght.exec(inputPassword.val()) &&
+      inputPassword.val() < 6 &&
       !lowerCharacters.exec(inputPassword.val()) &&
       !upperCharacters.exec(inputPassword.val()) &&
       !specialCharacters.exec(inputPassword.val())
@@ -56,7 +52,7 @@ window.onload = function () {
       return false
     } else if (
       !numbers.exec(inputPassword.val()) &&
-      !minLenght.exec(inputPassword.val()) &&
+      inputPassword.val() < 6 &&
       !lowerCharacters.exec(inputPassword.val()) &&
       !upperCharacters.exec(inputPassword.val())
     ) {
@@ -67,7 +63,7 @@ window.onload = function () {
       return false
     } else if (
       !numbers.exec(inputPassword.val()) &&
-      !minLenght.exec(inputPassword.val()) &&
+      inputPassword.val() < 6 &&
       !lowerCharacters.exec(inputPassword.val()) &&
       !upperCharacters.exec(inputPassword.val())
     ) {
@@ -78,7 +74,7 @@ window.onload = function () {
       return false
     } else if (
       !numbers.exec(inputPassword.val()) &&
-      !minLenght.exec(inputPassword.val())
+      inputPassword.val() < 6
     ) {
       weakPassword.html(
         'A sua senha precisa ter números <br> A sua senha precisa ter pelo menos 6 caracteres'
@@ -93,7 +89,7 @@ window.onload = function () {
       return false
     }
 
-    if (!minLenght.exec(inputPassword.val())) {
+    if (inputPassword.val() < 6) {
       weakPassword.html('A sua senha precisa ter pelo menos 6 caracteres')
 
       return false

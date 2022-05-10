@@ -4,6 +4,8 @@ $usuario = $_POST["usuario"];
 //$senha = $_POST["senha"];
 //echo json_encode("retorno:".$usuario);
 
+$code = rand(100000, 999999);
+
 $body = '<tr>
     <p>
     <font size="3" face="Verdana">
@@ -12,15 +14,24 @@ $body = '<tr>
 <tr>
     <p>
     <font size="3" face="Verdana">
-        Palestrinhas agradece pelo seu cadastro.
+        Palestrinhas agradece pelo seu login.
     </p>
 
     <p>
     <font size="3" face="Verdana">
-    <a href="http://localhost/Mail/teste.html%22%3EPara concluir o cadastro, clicke aqui</a>
+    [NUMEROS]
+    </p>
+
+    <p>
+    <font size="3" face="Verdana">
+    Para concluir insira esta sequencia numerica para concluir o login
     </p>
 
 </tr>';
+
+$body = str_replace('[NOME]', $usuario, $body);
+$body = str_replace('[NUMEROS]', $code, $body);
+
 
 $body = str_replace('[NOME]', $usuario, $body);
 
@@ -49,7 +60,7 @@ $mail->addReplyTo('no-reply@email.com.br');
 $mail->addAddress('okada.gui@gmail.com', '');
 $mail->isHTML(true);
 $mail->Subject = 'Confirmação de cadastro';
-$mail->Body = "Conteúdo da Menagem <b>HTML!</b>";
+$mail->Body = "Conteúdo da Mensagem <b>HTML!</b>";
 
 
 $mail->msgHTML = ("Mensagem");

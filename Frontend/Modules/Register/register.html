@@ -9,7 +9,6 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-	<link href="css/styles.css" rel="stylesheet" />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -26,175 +25,175 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="../scripts/register.js"></script>
+    <link href="../../Style/styles.css" rel="stylesheet" />
+    <script src="register.js"></script>
   </head>
 
   <body>
-
-   <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="media/bg.mp4" type="video/mp4" />
-  </video>
-  <div class="mx-5 d-flex justify-content-center flex-column masthead">
+    <video
+      class="bg-video"
+      playsinline="playsinline"
+      autoplay="autoplay"
+      muted="muted"
+      loop="loop"
+    >
+      <source src="../../Media/bg.mp4" type="video/mp4" />
+    </video>
+    <div class="mx-5 d-flex justify-content-center flex-column masthead">
       <div class="col-sm-5">
+        <div class="campos">
+          <label class="form-label">Nome Completo</label>
 
-            <div class="campos">
-              <label class="form-label">Nome Completo</label>
+          <input
+            id="nome"
+            name="nome"
+            type="text"
+            placeholder="Insira seu nome"
+            class="form-control"
+            required
+          />
+          <p class="help-block">* Campo Obrigatório</p>
+        </div>
+        <div class="campos">
+          <label class="form-label">CPF</label>
+          <input
+            id="cpf"
+            name="cpf"
+            type="text"
+            placeholder="Insira seu CPF"
+            class="form-control"
+            required
+          />
+        </div>
 
-                <input
-                  id="nome"
-                  name="nome"
-                  type="text"
-                  placeholder="Insira seu nome"
-                  class="form-control"
-                  required
-                />
-                <p class="help-block">* Campo Obrigatório</p>
-				</div>
-				<div class="campos">
-				 <label class="form-label">CPF</label>
-				                <input
-                  id="cpf"
-                  name="cpf"
-                  type="text"
-                  placeholder="Insira seu CPF"
-                  class="form-control"
-                  required
-                />
-            </div>
-
-
-            <div class="campos">
-              <label class="form-label">Endereço</label>
-              <div class="controls">
-                <input
-                  id="endereço"
-                  name="endereço"
-                  type="text"
-                  placeholder="Insira seu endereço"
-                  class="form-control"
-                  required
-                />
-                <p class="help-block">* Campo Obrigatório</p>
-              </div>
-            </div>
-
-            <div class="campos">
-              <label class="form-label">Telefone</label>
-              <div class="controls">
-                <input
-                  id="telefone"
-                  name="telefone"
-                  type="text"
-                  placeholder="Insira seu telefone"
-                  class="form-control"
-                  required
-                />
-                <p class="help-block">* Campo Obrigatório</p>
-              </div>
-            </div>
-
-            <div class="campos">
-              <label class="form-label">E-mail</label>
-              <div class="controls">
-                <input
-                  id="e-mail"
-                  name="e-mail"
-                  type="text"
-                  placeholder="Insira seu e-mail"
-                  class="form-control"
-                  required
-                />
-                <p class="help-block">* Campo Obrigatório</p>
-              </div>
-            </div>
+        <div class="campos">
+          <label class="form-label">Endereço</label>
+          <div class="controls">
+            <input
+              id="endereço"
+              name="endereço"
+              type="text"
+              placeholder="Insira seu endereço"
+              class="form-control"
+              required
+            />
+            <p class="help-block">* Campo Obrigatório</p>
           </div>
-          <div class="col-sm-5">
-            <div class="campos">
-              <label class="form-label">Senha</label>
-              <div class="controls">
-                <input
-                  id="inputPassword"
-                  name="senha"
-                  type="text"
-                  placeholder="Insira sua senha"
-                  class="form-control"
-                  required
-                />
-                <p class="help-block">* Campo Obrigatório</p>
-              </div>
-              <div id="weakPassword"></div>
-            </div>
+        </div>
 
-            <!-- Multiple Radios -->
-            <div class="campos">
-              <label class="form-label">Sexo</label>
-              <div class="controls">
-                <label class="radio">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="sexo"
-                    value="Masculino"
-                    checked="checked"
-                  />
-                  Masculino
-                </label>
-                <label class="radio">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="sexo"
-                    value="Feminino"
-                  />
-                  Feminino
-                </label>
-              </div>
-            </div>
+        <div class="campos">
+          <label class="form-label">Telefone</label>
+          <div class="controls">
+            <input
+              id="telefone"
+              name="telefone"
+              type="text"
+              placeholder="Insira seu telefone"
+              class="form-control"
+              required
+            />
+            <p class="help-block">* Campo Obrigatório</p>
+          </div>
+        </div>
 
-            <!-- Select Basic -->
-            <div class="campos mt-3">
-              <label class="form-label">País</label>
-              <div class="controls">
-                <select id="pais" name="pais" class="form-select">
-                  <option>Brasil</option>
-                  <option>Canada</option>
-                  <option>EUA</option>
-                  <option>Espanha</option>
-                  <option>França</option>
-                  <option>Itália</option>
-                  <option>Portugal</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- File Button -->
-            <div class="campos mt-3">
-              <label class="form-label">Currículo</label>
-              <div class="controls">
-                <input
-                  id="currículo"
-                  name="currículo"
-                  class="form-control"
-                  type="file"
-                />
-              </div>
-            </div>
-
-            <!-- Button -->
-            <div class="campos">
-              <label class="form-label"></label>
-              <div class="controls">
-                <button
-                  id="buttonRegister"
-                  name="enviar"
-                  class="btn btn-primary"
-                >
-                  Enviar
-                </button>
-              </div>
-              <div id="registerConfirmation"></div>
-            </div>
+        <div class="campos">
+          <label class="form-label">E-mail</label>
+          <div class="controls">
+            <input
+              id="e-mail"
+              name="e-mail"
+              type="text"
+              placeholder="Insira seu e-mail"
+              class="form-control"
+              required
+            />
+            <p class="help-block">* Campo Obrigatório</p>
+          </div>
+        </div>
       </div>
-	  </div>
+      <div class="col-sm-5">
+        <div class="campos">
+          <label class="form-label">Senha</label>
+          <div class="controls">
+            <input
+              id="inputPassword"
+              name="senha"
+              type="text"
+              placeholder="Insira sua senha"
+              class="form-control"
+              required
+            />
+            <p class="help-block">* Campo Obrigatório</p>
+          </div>
+          <div id="weakPassword"></div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="campos">
+          <label class="form-label">Sexo</label>
+          <div class="controls">
+            <label class="radio">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="sexo"
+                value="Masculino"
+                checked="checked"
+              />
+              Masculino
+            </label>
+            <label class="radio">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="sexo"
+                value="Feminino"
+              />
+              Feminino
+            </label>
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="campos mt-3">
+          <label class="form-label">País</label>
+          <div class="controls">
+            <select id="pais" name="pais" class="form-select">
+              <option>Brasil</option>
+              <option>Canada</option>
+              <option>EUA</option>
+              <option>Espanha</option>
+              <option>França</option>
+              <option>Itália</option>
+              <option>Portugal</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- File Button -->
+        <div class="campos mt-3">
+          <label class="form-label">Currículo</label>
+          <div class="controls">
+            <input
+              id="currículo"
+              name="currículo"
+              class="form-control"
+              type="file"
+            />
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="campos">
+          <label class="form-label"></label>
+          <div class="controls">
+            <button id="buttonRegister" name="enviar" class="btn btn-primary">
+              Enviar
+            </button>
+          </div>
+          <div id="registerConfirmation"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

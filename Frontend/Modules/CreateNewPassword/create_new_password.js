@@ -43,7 +43,7 @@ window.onload = function () {
 
   $("confirmButton").click(() => {
     if (handleValidatePassword()) {
-      window.location.href = "login.html";
+      window.location.href = "../Login/login.html";
     }
   });
 };

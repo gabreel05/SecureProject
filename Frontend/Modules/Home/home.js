@@ -2,7 +2,7 @@ $(document).ready(function () {
   $.ajax({
     dataType: "JSON",
     type: "POST",
-    url: "../php/home.php",
+    url: "../../../Backend/src/home.php",
     success: function () {},
   });
 });

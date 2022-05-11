@@ -10,11 +10,16 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+      integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <link href="../../Style/styles.css" rel="stylesheet" />
     <script src="login.js"></script>
@@ -36,50 +41,57 @@
         <div class="text-center card mt-3 mx-3"></div>
         <div class="mx-5 d-flex justify-content-center flex-column masthead">
           <h1 class="fst-italic">Login</h1>
-          <div class="card p-5 mx-5 my-5">
-            <div class="mb-3">
-              <label for="emailInput" class="form-label">E-mail</label>
-              <input
-                type="email"
-                name="emailInput"
-                id="emailInput"
-                class="form-control-lg"
-                placeholder="email@email.com"
-                style="border: 1px solid #333"
-              />
+          <form id="login_form">
+            <div class="card p-5 mx-5 my-5">
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">E-mail</label>
+                <input
+                  type="email"
+                  name="emailInput"
+                  id="emailInput"
+                  class="form-control-lg"
+                  placeholder="email@email.com"
+                  style="border: 1px solid #333"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="passwordInput" class="form-label">Senha</label>
+                <input
+                  type="password"
+                  name="passwordInput"
+                  id="passwordInput"
+                  class="form-control-lg"
+                  placeholder="*******"
+                  style="border: 1px solid #333"
+                />
+              </div>
+
+              <input type="hidden" id="password_hash" name="password_hash" />
+
+              <div class="d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg mx-5"
+                  id="loginButton"
+                >
+                  Entrar
+                </button>
+              </div>
+              <hr />
+              <p class="text-start">
+                <a class="text-decoration-none" href="../Register/register.html"
+                  >Criar conta</a
+                >
+              </p>
+              <p class="text-start">
+                <a
+                  class="text-decoration-none"
+                  href="../ResetPassword/reset_password.html"
+                  >Recuperar senha</a
+                >
+              </p>
             </div>
-            <div class="mb-3">
-              <label for="passwordInput" class="form-label">Senha</label>
-              <input
-                type="password"
-                name="passwordInput"
-                id="passwordInput"
-                class="form-control-lg"
-                placeholder="*******"
-                style="border: 1px solid #333"
-              />
-            </div>
-            <div class="d-flex justify-content-center">
-              <button
-                type="button"
-                class="btn btn-primary btn-lg mx-5"
-                id="loginButton"
-              >
-                Entrar
-              </button>
-            </div>
-            <hr />
-            <p class="text-start">
-              <a class="text-decoration-none"  href="../Register/register.html"
-                >Criar conta</a
-              >
-            </p>
-            <p class="text-start">
-              <a class="text-decoration-none" href="../ResetPassword/reset_password.html"
-                >Recuperar senha</a
-              >
-            </p>
-          </div>
+          </form>
         </div>
       </div>
     </div>

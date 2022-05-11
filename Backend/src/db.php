@@ -1,8 +1,8 @@
 <?php
-abstract class Database {
-    private function __construct() {}
-    private function __clone() {}
-    private function __destruct() {
+class Database {
+    public function __construct() {}
+    public function __clone() {}
+    public function __destruct() {
         foreach ($this as $key => $value) {
             unset($this -> $key);
         }
@@ -34,6 +34,44 @@ abstract class Database {
 
     public function disconnect() {
         $this -> connection = null;
+    }
+
+    public function select($sql, $params=null, $class=null) {
+        $query = $this -> connect() -> prepare($sql);
+        $query -> execute($params);
+
+        if (isset($class)) {
+            $resultSet = $query -> fetchAll(PDO::FETCH_CLASS, $class) or die(print_r($query -> errorInfo(), true));
+        } else {
+            $resultSet = $query -> fetchAll(PDO::FETCH_OBJ) or die(print_r($query -> errorInfo(), true));
+        }
+        self::__destruct();
+        return $resultSet;
+    }
+
+    public function insert($sql, $params=null) {
+        $connection = $this -> connect();
+        $query = $connection -> prepare($sql);
+        $query -> execute($params);
+        $resultSet -> $connection -> lastInserId() or die(print_r($query -> errorInfo(), true));
+        self::__destruct();
+        return $resultSet;
+    }
+
+    public function update($sql, $params=null) {
+        $query = $this -> connect() -> prepare($sql);
+        $query -> execute($params);
+        $resultSet = $query -> rowCount() or die(print_r($query -> errorInfo(), true));
+        self::__destruct();
+        return $resultSet;
+    }
+
+    public function delete($sql, $params=null) {
+        $query = $this -> connect() -> prepare($sql);
+        $query -> execute($params);
+        $resultSet = $query -> rowCount() or die(print_r($query -> errorInfo(), true));
+        self::__destruct();
+        return $resultSet;
     }
 }
 ?>

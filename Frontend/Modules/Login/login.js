@@ -1,30 +1,26 @@
 window.onload = function () {
-  const inputEmail = $("#emailInput");
-
   $("#loginButton").click(() => {
-    createSession(inputEmail.val());
+    createSession();
   });
 
-  function createSession(params) {
-    const accounts = JSON.parse(window.localStorage.getItem("accounts"));
+  function createSession() {
+    $("#password_hash").val(CryptoJS.SHA1($("#passwordInput").val()));
+    const data = $("#login_form").serialize();
 
-    const account = accounts.find(
-      (element) => element.email === inputEmail.val()
-    );
+    console.log(data);
 
-    // caso não ache o email ele retorna undefined a const account
     $.ajax({
-      dataType: "JSON",
       type: "POST",
-      data: {
-        email: params,
-      },
+      dataType: "JSON",
+      data,
       url: "../../../Backend/src/select.php",
       success: function (res) {
         console.log(res);
       },
     });
 
-    //
+    $("#login-form").submit(function (e) {
+      return false;
+    });
   }
 };

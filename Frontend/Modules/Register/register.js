@@ -1,6 +1,4 @@
 window.onload = function () {
-  debugger;
-
   const numbers = /[0-9]/;
   const minLenght = /[a-zA-Z0-9]{6}/;
   const lowerCharacters = /[a-z]/;
@@ -133,12 +131,35 @@ window.onload = function () {
   }
 
   $("#buttonRegister").click(() => {
-    if (handleValidatePassword()) {
-      $("#registerConfirmation").html("<h1>Sucesso!</h1>");
+    // if (handleValidatePassword()) {
+    //   $("#registerConfirmation").html("<h1>Sucesso!</h1>");
 
-      saveAccount();
+    //   saveAccount();
 
-      sendParams();
-    }
+    //   sendParams();
+    // }
+
+    save();
   });
+
+  function save() {
+    $("#password_hash").val(CryptoJS.SHA1(inputPassword.val()));
+    const data = $("#register_form").serialize();
+
+    $.ajax({
+      type: "POST",
+      dataType: "JSON",
+      data,
+      url: "../../../Backend/src/insert.php",
+      success: function (response) {
+        console.log(response);
+      },
+    });
+
+    $("#register-form").submit(function (e) {
+      return false;
+    });
+
+    window.location.href = "../Login/login.html";
+  }
 };

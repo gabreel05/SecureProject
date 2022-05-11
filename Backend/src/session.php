@@ -12,7 +12,7 @@
     $_SESSION['expiration_date'] = $_SESSION['creation_date'] + $expiration_time;
 
     if (session_id() != $_SESSION['session_id']) {
-        header('Location: www.google.com', true, 301);
+        echo json_encode("dihsaudhasu")
         exit;
     }
 

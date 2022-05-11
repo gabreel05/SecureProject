@@ -1,6 +1,4 @@
 <?php
-    $name = "Gabriel";
-
     try {
         $conn = new PDO("mysql:host=localhost:3306;dbName=DB_SecureProject", "root", "puc2022");
         $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

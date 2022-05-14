@@ -1,26 +1,15 @@
-window.onload = function () {
-  $("#loginButton").click(() => {
-    createSession();
-  });
-
-  function createSession() {
-    $("#password_hash").val(CryptoJS.SHA1($("#passwordInput").val()));
-    const data = $("#login_form").serialize();
-
-    console.log(data);
-
+$(document).ready(function () {
+  $('#buttonLogin').click(function () {
+    $('#inputPasswordHash').val(CryptoJS.SHA1($('#inputPassword').val()))
     $.ajax({
-      type: "POST",
-      dataType: "JSON",
-      data,
-      url: "../../../Backend/src/select.php",
-      success: function (res) {
-        console.log(res);
-      },
-    });
-
-    $("#login-form").submit(function (e) {
-      return false;
-    });
-  }
-};
+      type: 'POST',
+      dataType: 'JSON',
+      url: 'select.php',
+      data: $('#formLogin').serialize(),
+      success: function (data) {}
+    })
+    $('$formLogin').submit(function () {
+      return false
+    })
+  })
+})

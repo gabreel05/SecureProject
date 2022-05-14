@@ -173,3 +173,42 @@ img {
 .row {
     --bs-gutter-x: -0.5rem !important;
 }
+
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+#passwordMessage {
+  display: none;
+  background-color: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#passwordMessage p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}

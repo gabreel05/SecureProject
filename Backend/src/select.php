@@ -4,7 +4,8 @@
     $email = $_POST["email"];
     $password = $_POST["passwordHash"];        
 
-    $stmt = $conn -> prepare("SELECT TB_Users.user_email, TB_Users.user_password FROM DB_SecureProject.TB_Users WHERE user_email = :email AND user_password = :password");
+    $stmt = $conn -> prepare("SELECT TB_Users.user_email, TB_Users.user_password, TB_Users.user_name 
+        FROM DB_SecureProject.TB_Users WHERE user_email = :email AND user_password = :password");
     $stmt -> execute(array('email' => $email, 'password' => $password));
 
     $result = $stmt -> fetchAll();

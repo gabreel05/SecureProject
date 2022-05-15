@@ -4,7 +4,7 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       dataType: 'JSON',
-      url: '../../../Backend/src/select.php',
+      url: '../../../Backend/src/login.php',
       data: $('#formLogin').serialize(),
       success: function (data) {
         if (data === 'Conta encontrada') {

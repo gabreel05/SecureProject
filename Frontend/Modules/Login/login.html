@@ -41,38 +41,38 @@
         <div class="text-center card mt-3 mx-3"></div>
         <div class="mx-5 d-flex justify-content-center flex-column masthead">
           <h1 class="fst-italic">Login</h1>
-          <form id="login_form">
+          <form id="formLogin">
             <div class="card p-5 mx-5 my-5">
               <div class="mb-3">
-                <label for="emailInput" class="form-label">E-mail</label>
+                <label for="email" class="form-label">E-mail</label>
                 <input
                   type="email"
-                  name="emailInput"
-                  id="emailInput"
+                  name="email"
+                  id="email"
                   class="form-control-lg"
                   placeholder="email@email.com"
                   style="border: 1px solid #333"
                 />
               </div>
               <div class="mb-3">
-                <label for="passwordInput" class="form-label">Senha</label>
+                <label for="password" class="form-label">Senha</label>
                 <input
                   type="password"
-                  name="passwordInput"
-                  id="passwordInput"
+                  name="password"
+                  id="password"
                   class="form-control-lg"
                   placeholder="*******"
                   style="border: 1px solid #333"
                 />
               </div>
 
-              <input type="hidden" id="password_hash" name="password_hash" />
+              <input type="hidden" id="passwordHash" name="passwordHash" />
 
               <div class="d-flex justify-content-center">
                 <button
                   type="button"
                   class="btn btn-primary btn-lg mx-5"
-                  id="loginButton"
+                  id="buttonLogin"
                 >
                   Entrar
                 </button>

@@ -1,14 +1,16 @@
 $(document).ready(function () {
   $('#buttonLogin').click(function () {
-    $('#inputPasswordHash').val(CryptoJS.SHA1($('#inputPassword').val()))
+    $('#passwordHash').val(CryptoJS.SHA1($('#password').val()))
     $.ajax({
       type: 'POST',
       dataType: 'JSON',
-      url: 'select.php',
+      url: '../../../Backend/src/select.php',
       data: $('#formLogin').serialize(),
-      success: function (data) {}
+      success: function (data) {
+        console.log(data)
+      }
     })
-    $('$formLogin').submit(function () {
+    $('#formLogin').submit(function () {
       return false
     })
   })

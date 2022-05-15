@@ -1,11 +1,11 @@
 <?php
     include "database.php";
     
-    $emailInput = $_POST["emailInput"];
-    $passwordInput = $_POST["password_hash"];        
+    $email = $_POST["email"];
+    $password = $_POST["passwordHash"];        
 
-    $stmt = $conn -> prepare("SELECT TB_Users.user_email FROM DB_SecureProject.TB_Users WHERE user_email = :email AND user_password = :password");
-    $stmt -> execute(array('email' => $emailInput, 'password' => $passwordInput));
+    $stmt = $conn -> prepare("SELECT TB_Users.user_email, TB_Users.user_password FROM DB_SecureProject.TB_Users WHERE user_email = :email AND user_password = :password");
+    $stmt -> execute(array('email' => $email, 'password' => $password));
 
     $result = $stmt -> fetchAll();
 
@@ -14,9 +14,6 @@
             echo json_encode($row);
         }
     } else {
-        echo json_encode("Nenhum resultado!");
+        echo json_encode("Nenhum resultado");
     }
-    // while ($row = $stmt -> fetch()) {
-    //     echo json_encode($row);
-    // }
 ?>

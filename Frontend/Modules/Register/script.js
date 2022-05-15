@@ -43,9 +43,8 @@ $(document).ready(function () {
     }
   })
 
-  $('#passwordHash').val(CryptoJS.SHA1($('#password').val()))
-
   $('#buttonRegister').click(function () {
+    $('#passwordHash').val(CryptoJS.SHA1($('#password').val()))
     $.ajax({
       type: 'POST',
       dataType: 'JSON',

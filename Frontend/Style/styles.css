@@ -126,6 +126,11 @@ video.bg-video {
 
 body {
   color: #adb5bd !important;
+  margin-top: 10%;
+}
+
+.cssbody{
+  color: #dee2e6 !important;;
 }
 
 .btn-primary {
@@ -152,26 +157,31 @@ img {
   height: 100vh;
 }
 
-.campos{
-	position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
+.campos {
+  margin-inline-start: 3%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+}
+  
+.buttonRegister{
+  float: right;
 }
 
 .card-header {
 
-    background-color: #2a5555cc !important;
+  background-color: #2a5555cc !important;
 }
 
 .card {
 
-    background-color: #dee2e6  !important;
+  background-color: #dee2e6 !important;
 }
 
 .row {
-    --bs-gutter-x: -0.5rem !important;
+  --bs-gutter-x: -0.5rem !important;
 }
 
 .container {

@@ -1,210 +1,161 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Formulário de Cadastro de Usuário</title>
-    <meta charset="UTF-8" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"
-      integrity="sha512-hAJgR+pK6+s492clbGlnrRnt2J1CJK6kZ82FZy08tm6XG2Xl/ex9oVZLE6Krz+W+Iv4Gsr8U2mGMdh0ckRH61Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
-      integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link href="../../Style/styles.css" rel="stylesheet" />
-    <script src="script.js"></script>
-  </head>
 
-  <body>
-    <video
-      class="bg-video"
-      playsinline="playsinline"
-      autoplay="autoplay"
-      muted="muted"
-      loop="loop"
-    >
-      <source src="../../Media/bg.mp4" type="video/mp4" />
-    </video>
-    <div class="mx-5 d-flex justify-content-center flex-column masthead">
-      <form id="formRegister">
-        <div class="col-sm-5 col-md-12">
-          <div class="campos">
-            <label class="form-label">Nome Completo</label>
+<head>
+  <title>Formulário de Cadastro de Usuário</title>
+  <meta charset="UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"
+    integrity="sha512-hAJgR+pK6+s492clbGlnrRnt2J1CJK6kZ82FZy08tm6XG2Xl/ex9oVZLE6Krz+W+Iv4Gsr8U2mGMdh0ckRH61Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+    integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="../../Style/styles.css" rel="stylesheet" />
+  <script src="script.js"></script>
+</head>
 
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Insira seu nome"
-              class="form-control"
-              required
-            />
-            <p class="help-block">* Campo Obrigatório</p>
-          </div>
-          <div class="campos">
-            <label class="form-label">CPF</label>
-            <input
-              id="document"
-              name="document"
-              type="text"
-              placeholder="Insira seu CPF"
-              class="form-control"
-              required
-            />
-            <p class="help-block">* Campo Obrigatório</p>
-          </div>
+<body class="cssbody">
+  <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="../../Media/bg.mp4" type="video/mp4" />
+  </video>
 
-          <div class="campos">
-            <label class="form-label">Endereço</label>
-            <div class="controls">
-              <input
-                id="address"
-                name="address"
-                type="text"
-                placeholder="Insira seu endereço"
-                class="form-control"
-                required
-              />
-              <p class="help-block">* Campo Obrigatório</p>
-            </div>
-          </div>
 
-          <div class="campos">
-            <label class="form-label">Telefone</label>
-            <div class="controls">
-              <input
-                id="phone"
-                name="phone"
-                type="text"
-                placeholder="Insira seu telefone"
-                class="form-control"
-                required
-              />
-              <p class="help-block">* Campo Obrigatório</p>
-            </div>
-          </div>
+  <form id="formRegister">
 
-          <div class="campos">
-            <label class="form-label">E-mail</label>
-            <div class="controls">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Insira seu e-mail"
-                class="form-control"
-                required
-              />
-              <p class="help-block">* Campo Obrigatório</p>
-            </div>
-          </div>
-          <div class="col-sm-5">
-            <div class="campos">
-              <label class="form-label">Senha</label>
-              <div class="controls">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  placeholder="Insira sua senha"
-                  class="form-control"
-                  required
-                />
-                <p class="help-block">* Campo Obrigatório</p>
-              </div>
-              <div id="passwordMessage">
-                <h5>A senha deve conter pelo menos:</h5>
-                <p id="uppercase" class="invalid">Uma letra <b>maiscúla</b></p>
-                <p id="lowercase" class="invalid">Uma letra <b>minúscula</b></p>
-                <p id="number" class="invalid">Um <b>número</b></p>
-                <p id="length" class="invalid">
-                  Pelo menos <b>6 caracteres</b>
-                </p>
-              </div>
-            </div>
-
-            <!-- Multiple Radios -->
-            <div class="campos">
-              <label class="form-label">Sexo</label>
-              <div class="controls">
-                <label class="radio">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="gender"
-                    value="Masculino"
-                    checked="checked"
-                  />
-                  Masculino
-                </label>
-                <label class="radio">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="gender"
-                    value="Feminino"
-                  />
-                  Feminino
-                </label>
-              </div>
-            </div>
-
-            <!-- Select Basic -->
-            <div class="campos mt-3">
-              <label class="form-label">País</label>
-              <div class="controls">
-                <select id="country" name="country" class="form-select">
-                  <option>Brasil</option>
-                  <option>Canada</option>
-                  <option>EUA</option>
-                  <option>Espanha</option>
-                  <option>França</option>
-                  <option>Itália</option>
-                  <option>Portugal</option>
-                </select>
-              </div>
-            </div>
-
-            <input type="hidden" id="passwordHash" name="passwordHash" />
-
-            <!-- Button -->
-          </div>
+    <div class="row">
+      <div class=" col-md-6 ">
+        <div class="campos">
+          <label class="form-label">Nome Completo</label>
+          <input id="name" name="name" type="text" placeholder="Insira seu nome" class="form-control" required />
+          <p class="help-block">* Campo Obrigatório</p>
         </div>
-      </form>
+      </div>
 
-      <div class="campos">
-        <label class="form-label"></label>
-        <div class="controls">
-          <button
-            id="buttonRegister"
-            name="buttonRegister"
-            class="btn btn-primary"
-          >
-            Enviar
-          </button>
+      <div class="col-md-5 ">
+        <div class="campos">
+          <label class="form-label">CPF</label>
+          <input id="document" name="document" type="text" placeholder="Insira seu CPF" class="form-control" required />
+          <p class="help-block">* Campo Obrigatório</p>
         </div>
-        <div id="registerConfirmation"></div>
       </div>
     </div>
-  </body>
+
+    <div class="row">
+      <div class="col-md-6 ">
+        <div class="campos">
+          <label class="form-label">Endereço</label>
+          <div class="controls">
+            <input id="address" name="address" type="text" placeholder="Insira seu endereço" class="form-control"
+              required />
+            <p class="help-block">* Campo Obrigatório</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 ">
+        <div class="campos">
+          <label class="form-label">Telefone</label>
+          <div class="controls">
+            <input id="phone" name="phone" type="text" placeholder="Insira seu telefone" class="form-control"
+              required />
+            <p class="help-block">* Campo Obrigatório</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 ">
+        <div class="campos">
+          <label class="form-label">E-mail</label>
+          <div class="controls">
+            <input id="email" name="email" type="email" placeholder="Insira seu e-mail" class="form-control" required />
+            <p class="help-block">* Campo Obrigatório</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 ">
+        <div class="campos ">
+          <label class="form-label">País</label>
+          <div class="controls">
+            <select id="country" name="country" class="form-select">
+              <option>Brasil</option>
+              <option>Canada</option>
+              <option>EUA</option>
+              <option>Espanha</option>
+              <option>França</option>
+              <option>Itália</option>
+              <option>Portugal</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="campos">
+          <label class="form-label">Senha</label>
+          <div class="controls">
+            <input id="password" name="password" type="password" placeholder="Insira sua senha" class="form-control"
+              required />
+            <p class="help-block">* Campo Obrigatório</p>
+          </div>
+          <div id="passwordMessage">
+            <h5>A senha deve conter pelo menos:</h5>
+            <p id="uppercase" class="invalid">Uma letra <b>maiscúla</b></p>
+            <p id="lowercase" class="invalid">Uma letra <b>minúscula</b></p>
+            <p id="number" class="invalid">Um <b>número</b></p>
+            <p id="length" class="invalid">
+              Pelo menos <b>6 caracteres</b>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 ">
+        <div class="campos">
+          <label class="form-label">Sexo</label>
+          <div class="controls">
+            <label class="radio">
+              <input class="form-check-input" type="radio" name="gender" value="Masculino" checked="checked" />
+              Masculino
+            </label>
+            <label class="radio">
+              <input class="form-check-input" type="radio" name="gender" value="Feminino" />
+              Feminino
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <input type="hidden" id="passwordHash" name="passwordHash" />
+
+  </form>
+
+  <div class="col-md-11">
+    <div class="campos buttonRegister">
+      <label class="form-label"></label>
+      <div class="controls">
+        <button id="buttonRegister" name="buttonRegister" class="btn btn-primary">
+          Enviar
+        </button>
+      </div>
+      <div id="registerConfirmation"></div>
+    </div>
+  </div>
+  </div>
+
+</body>
+
 </html>

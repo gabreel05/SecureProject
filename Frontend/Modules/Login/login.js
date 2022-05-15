@@ -7,7 +7,11 @@ $(document).ready(function () {
       url: '../../../Backend/src/select.php',
       data: $('#formLogin').serialize(),
       success: function (data) {
-        console.log(data)
+        if (data === 'Conta encontrada') {
+          $(location).attr('href', '../TwoFactor/two_factor.html')
+        } else {
+          alert('Usuário ou senha incorretos')
+        }
       }
     })
     $('#formLogin').submit(function () {

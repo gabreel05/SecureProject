@@ -11,7 +11,7 @@
 
     if (count($result)) {
         foreach($result as $row) {
-            echo json_encode($row);
+            echo json_encode("Conta encontrada");
         }
     } else {
         echo json_encode("Nenhum resultado");

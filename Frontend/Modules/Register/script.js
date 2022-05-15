@@ -51,11 +51,13 @@ $(document).ready(function () {
       dataType: 'JSON',
       data: $('#formRegister').serialize(),
       url: '../../../Backend/src/insert.php',
-      success: function (response) {}
-    })
-
-    $('#formRegister').submit(function () {
-      return false
+      success: function (response) {
+        if (response === 'Data inserted successfuly') {
+          $(location).attr('href', '../Login/login.html')
+        } else {
+          alert('Erro inesperado. Por favor tente novamente')
+        }
+      }
     })
   })
 })

@@ -15,8 +15,8 @@
         VALUES ('$name', '$document', '$email', '$phone', '$gender', '$password', '$country')");
 
     if ($data) {
-        echo("Inseriu!");
+        echo json_encode("Data inserted successfuly");
     } else {
-        echo("Não inseriu!");
+        echo json_encode("Data not inserted");
     }
 ?>

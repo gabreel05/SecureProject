@@ -41,22 +41,21 @@ $(document).ready(function () {
       $('#length').removeClass('valid')
       $('#length').addClass('invalid')
     }
+  })
 
-    $('#passwordHash').val(CryptoJS.SHA1($('#password').val()))
+  $('#passwordHash').val(CryptoJS.SHA1($('#password').val()))
 
-    $('#buttonRegister').click(function () {
-      $.ajax({
-        type: 'POST',
-        dataType: 'JSON',
-        data: $('#formRegister').serialize(),
-        url: '../../../Backend/src/insert.php',
-        success: function (response) {
-          console.log(response)
-        }
-      })
-      $('#formRegister').submit(function () {
-        return false
-      })
+  $('#buttonRegister').click(function () {
+    $.ajax({
+      type: 'POST',
+      dataType: 'JSON',
+      data: $('#formRegister').serialize(),
+      url: '../../../Backend/src/insert.php',
+      success: function (response) {}
+    })
+
+    $('#formRegister').submit(function () {
+      return false
     })
   })
 })

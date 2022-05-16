@@ -1,3 +1,5 @@
 <?php
-  $code = rand(100000, 999999);
+  function generateCode() {
+    return rand(100000, 999999); 
+  }
 ?>

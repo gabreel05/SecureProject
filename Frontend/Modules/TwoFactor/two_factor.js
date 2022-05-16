@@ -3,7 +3,9 @@ $(document).ready(function () {
     $.ajax({
       type: 'GET',
       dataType: 'JSON',
-      data: $('#code').val(),
+      data: {
+        code: $('#code').val()
+      },
       url: '../../../Backend/src/twoFactorCode.php',
       onSuccess: function (data) {
         console.log(data)

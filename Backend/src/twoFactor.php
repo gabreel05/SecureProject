@@ -1,9 +1,6 @@
 <?php
   include "select.php";
-  include "code.php";
   include "sendEmail.php";
-
-  $code = generateCode();
 
   $email = "";
   $user = "";
@@ -27,18 +24,12 @@
       </p>
       <p>
         <font size="3" face="Verdana">
-        [NUMBERS]
-      </p>
-      <p>
-        <font size="3" face="Verdana">
-        Para concluir insira esta sequencia numérica para concluir o login
+        <a href="http://localhost/SecureProject/Frontend/Modules/Home/home.html?isFromTwoFactor=true">Para concluir o login, clicke aqui</a>
       </p>
     </tr>
   ';
 
     $body = str_replace('[NAME]', $user, $body);
-    $body = str_replace('[NUMBERS]', $code, $body);    
 
     sendEmail($email, $user, 'Código de confirmação', $body);
 ?>
- 

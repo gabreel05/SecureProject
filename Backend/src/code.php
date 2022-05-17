@@ -1,5 +1,7 @@
 <?php
-  function generateCode() {
-    return rand(100000, 999999); 
+  class CodeGenerator {
+    public static function generateCode() {
+      return rand(100000, 999999);
+    }
   }
 ?>

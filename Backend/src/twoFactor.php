@@ -24,7 +24,7 @@
       </p>
       <p>
         <font size="3" face="Verdana">
-        <a href="http://localhost/SecureProject/Frontend/Modules/Home/home.html?isFromTwoFactor=true">Para concluir o login, clicke aqui</a>
+        <a href="http://localhost/SecureProject/Frontend/Modules/Loading/loading.html">Para concluir o login, clicke aqui</a>
       </p>
     </tr>
   ';

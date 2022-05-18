@@ -1,13 +1,13 @@
 <?php
-    if ($_POST != null) {
+    if (session_status() == PHP_SESSION_NONE) {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
             
-            $creationTime = $_POST["creationDate"];
+            $creationTime = $_POST["expirationDate"];
             $expirationTime = $_POST["expirationDate"];
             
             $_SESSION['session_id'] = session_id();
-            $_SESSION['session_name'] = session_name();
+            $_SESSION['session_name'] = "Palestrinhas";
             $_SESSION['creation_date'] = $creationTime;
             $_SESSION['expiration_date'] = $expirationTime;
 

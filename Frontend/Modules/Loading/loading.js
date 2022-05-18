@@ -9,12 +9,11 @@ $(document).ready(function () {
     dataType: "JSON",
     url: "../../../Backend/src/home.php",
     data: {
-      TOKEN: "TOKEN",
       creationDate: creationTime,
       expirationDate: expirationTime,
     },
     success: function (data) {
-      if (data == "Sessão criada") {
+      if (data.includes("Sessão criada")) {
         window.location.href = "../Home/home.html";
       }
     },

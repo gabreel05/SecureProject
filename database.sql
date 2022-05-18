@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS DB_SecureProject.TB_Users(
 	user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(255) NOT NULL,
     user_document CHAR(14) NOT NULL,
-    user_email VARCHAR(255) NOT NULL,
+    user_email VARCHAR(255) NOT NULL UNIQUE,
     user_phone CHAR(15) NOT NULL,
     user_gender VARCHAR(255) NOT NULL,
     user_password VARCHAR(255) NOT NULL,

@@ -36,7 +36,7 @@
   ';
 
     $body = str_replace('[NAME]', $user, $body);
-    $body = str_replace('[BODY]', $code, $body);
+    $body = str_replace('[NUMBERS]', $code, $body);
 
     sendEmail($email, $user, 'Código de confirmação', $body);
 ?>

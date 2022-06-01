@@ -1,62 +1,82 @@
 $(document).ready(function () {
-  $('#phone').mask('(00) 00000-0000')
-  $('#document').mask('000.000.000-00')
+  $("#phone").mask("(00) 00000-0000");
+  $("#document").mask("000.000.000-00");
 
-  $('#password').focus(function () {
-    $('#passwordMessage').css('display', 'block')
-  })
-  $('#password').blur(function () {
-    $('#passwordMessage').css('display', 'none')
-  })
+  $("#password").focus(function () {
+    $("#passwordMessage").css("display", "block");
+  });
+  $("#password").blur(function () {
+    $("#passwordMessage").css("display", "none");
+  });
 
-  $('#password').keyup(function () {
-    if ($('#password').val().match(/[a-z]/g)) {
-      $('#lowercase').removeClass('invalid')
-      $('#lowercase').addClass('valid')
+  $("#password").keyup(function () {
+    if ($("#password").val().match(/[a-z]/g)) {
+      $("#lowercase").removeClass("invalid");
+      $("#lowercase").addClass("valid");
     } else {
-      $('#lowercase').removeClass('valid')
-      $('#lowercase').addClass('invalid')
+      $("#lowercase").removeClass("valid");
+      $("#lowercase").addClass("invalid");
     }
 
-    if ($('#password').val().match(/[A-Z]/g)) {
-      $('#uppercase').removeClass('invalid')
-      $('#uppercase').addClass('valid')
+    if ($("#password").val().match(/[A-Z]/g)) {
+      $("#uppercase").removeClass("invalid");
+      $("#uppercase").addClass("valid");
     } else {
-      $('#uppercase').removeClass('valid')
-      $('#uppercase').addClass('invalid')
+      $("#uppercase").removeClass("valid");
+      $("#uppercase").addClass("invalid");
     }
 
-    if ($('#password').val().match(/[0-9]/g)) {
-      $('#number').removeClass('invalid')
-      $('#number').addClass('valid')
+    if ($("#password").val().match(/[0-9]/g)) {
+      $("#number").removeClass("invalid");
+      $("#number").addClass("valid");
     } else {
-      $('#number').removeClass('valid')
-      $('#number').addClass('invalid')
+      $("#number").removeClass("valid");
+      $("#number").addClass("invalid");
     }
 
-    if ($('#password').val().length >= 6) {
-      $('#length').removeClass('invalid')
-      $('#length').addClass('valid')
+    if ($("#password").val().length >= 6) {
+      $("#length").removeClass("invalid");
+      $("#length").addClass("valid");
     } else {
-      $('#length').removeClass('valid')
-      $('#length').addClass('invalid')
+      $("#length").removeClass("valid");
+      $("#length").addClass("invalid");
     }
-  })
+  });
 
-  $('#buttonRegister').click(function () {
-    $('#passwordHash').val(CryptoJS.SHA1($('#password').val()))
+  $("#buttonRegister").click(function () {
+    $("#passwordHash").val(CryptoJS.SHA256($("#password").val()));
+
+    const message = JSON.stringify($("#formRegister").serialize()).toString();
+    const key = CryptoJS.enc.Utf8.parse();
+    const iv = CryptoJS.lib.WordArray.random(16);
+
+    const encryptedMessage = CryptoJS.AES.encrypt(message, key, {
+      iv: CryptoJS.enc.Utf8.parse(iv),
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.ZeroPadding,
+    });
+
+    const encodedMessage = btoa(encryptedMessage);
+
+    const crypto = new JSEncrypt();
+    crypto.setPublicKey("");
+
+    const encryptedData = crypto.encrypt(encodedMessage);
+
     $.ajax({
-      type: 'POST',
-      dataType: 'JSON',
-      data: $('#formRegister').serialize(),
-      url: '../../../Backend/src/insert.php',
+      type: "POST",
+      dataType: "JSON",
+      data: {
+        message: encryptedData,
+      },
+      url: "../../../Backend/src/insert.php",
       success: function (response) {
-        if (response === 'Data inserted successfuly') {
-          $(location).attr('href', '../Login/login.html')
+        if (response === "Data inserted successfuly") {
+          $(location).attr("href", "../Login/login.html");
         } else {
-          alert('Erro inesperado. Por favor tente novamente')
+          alert("Erro inesperado. Por favor tente novamente");
         }
-      }
-    })
-  })
-})
+      },
+    });
+  });
+});

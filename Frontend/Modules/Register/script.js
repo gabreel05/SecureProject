@@ -66,9 +66,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       dataType: "JSON",
-      data: {
-        message: encryptedData,
-      },
+      data: $("#formRegister").serialize(),
       url: "../../../Backend/src/insert.php",
       success: function (response) {
         if (response === "Data inserted successfuly") {

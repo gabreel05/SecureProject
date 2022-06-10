@@ -19,6 +19,10 @@ video.bg-video {
   justify-content: center;
 }
 
+.prof{
+  z-index: 9999!important;
+}
+
 .masthead:before {
   content: "";
   position: absolute;
@@ -121,6 +125,7 @@ video.bg-video {
 .mb-4 {
   margin-bottom: 1.5rem !important;
 }
+
 
 
 

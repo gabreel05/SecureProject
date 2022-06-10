@@ -127,11 +127,15 @@ video.bg-video {
 }
 
 
-
+div.card-body.mx-auto{
+	background-color: rgba(0, 0, 0, 0.85);
+    transform: skewX(0deg);
+    transform-origin: top right;
+}
 
 body {
   color: #adb5bd !important;
-  margin-top: 10%;
+  
 }
 
 .cssbody{
@@ -182,7 +186,7 @@ img {
 
 .card {
 
-  background-color: #dee2e6 !important;
+  
 }
 
 .row {

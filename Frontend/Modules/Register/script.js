@@ -46,13 +46,17 @@ $(document).ready(function () {
   $('#buttonRegister').click(function () {
     $('#passwordHash').val(CryptoJS.SHA256($('#password').val()))
 
-    const encryptedData = encrypt($('#formRegister').serialize())
+    const formData = {
+      name: $('#name').val(),
+      document: $('#document').val()
+    }
+    const encryptedData = encrypt(JSON.stringify(formData))
 
     $.ajax({
       type: 'POST',
       dataType: 'JSON',
       data: {
-        message: btoa(encryptedData)
+        message: encryptedData
       },
       url: '../../../Backend/src/RegisterPHP.php',
       success: function (response) {

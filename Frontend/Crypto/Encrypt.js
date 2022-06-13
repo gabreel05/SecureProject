@@ -1,10 +1,9 @@
 function encrypt(message) {
-  let secret = CryptoJS.lib.WordArray.random(16)
+  let secret = CryptoJS.lib.WordArray.random(8)
   const salt = CryptoJS.lib.WordArray.random(16)
 
   let key = CryptoJS.PBKDF2(secret, salt, {
-    keySize: 8,
-    iterations: 1000
+    keySize: 8
   })
   let iv = CryptoJS.lib.WordArray.random(8)
 

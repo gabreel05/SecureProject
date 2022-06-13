@@ -10,12 +10,15 @@
     openssl_private_decrypt(base64_decode($key), $key, $private_key);
     openssl_private_decrypt(base64_decode($iv), $iv, $private_key);
 
-    $key = trim($key, '""');
-    $iv = trim($iv, '""');
+    $key = trim($key, '"');
+    $iv = trim($iv, '"');
 
-    $crypto = $values["message"];
+    $crypto = $data["message"];
 
     $decrypted_message = openssl_decrypt($crypto, "aes-128-cbc", $key, OPENSSL_ZERO_PADDING, $iv);
+
+    $decrypted_message = trim($decrypted_message);
+    $decrypted_message = json_decode($decrypted_message, true);
 
     return $decrypted_message;
   }

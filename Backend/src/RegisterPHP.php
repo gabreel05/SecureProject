@@ -3,8 +3,9 @@
     include "crypto.php";
 
     $message = decrypt($_POST["message"]);
+    echo $message["name"];
 
-    echo $message;
+    // echo $message;
 
     // $name = $_POST["name"];
     // $document = $_POST["document"];

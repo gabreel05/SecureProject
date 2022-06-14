@@ -44,35 +44,46 @@ $(document).ready(function () {
   })
 
   $('#buttonRegister').click(function () {
-    $('#passwordHash').val(CryptoJS.SHA256($('#password').val()))
+    if (
+      $('#name').val().length == 0 ||
+      $('#document').val().length == 0 ||
+      $('#address').val().length == 0 ||
+      $('#phone').val().length == 0 ||
+      $('#email').val().length == 0 ||
+      $('#password').val().length == 0
+    ) {
+      $('#emptyFields').html('Por favor preencha todos os campos')
+    } else {
+      $('#passwordHash').val(CryptoJS.SHA256($('#password').val()))
 
-    const formData = {
-      name: $('#name').val(),
-      document: $('#document').val(),
-      address: $('#address').val(),
-      phone: $('#phone').val(),
-      email: $('#email').val(),
-      password: $('#passwordHash').val(),
-      gender: $('input[name=gender]:checked').val(),
-      country: $('#country option:selected').val()
-    }
-
-    const encryptedData = encrypt(JSON.stringify(formData))
-
-    $.ajax({
-      type: 'POST',
-      dataType: 'JSON',
-      data: {
-        message: encryptedData
-      },
-      url: '../../../Backend/src/RegisterPHP.php',
-      success: function (response) {
-        if (response === 'Data inserted successfuly') {
-          $(location).attr('href', '../Login/login.html')
-        } else {
-          alert('Erro inesperado. Por favor tente novamente')
-        }
+      const formData = {
+        name: $('#name').val(),
+        document: $('#document').val(),
+        address: $('#address').val(),
+        phone: $('#phone').val(),
+        email: $('#email').val(),
+        password: $('#passwordHash').val(),
+        gender: $('input[name=gender]:checked').val(),
+        country: $('#country option:selected').val()
       }
-    })
+
+      const encryptedData = encrypt(JSON.stringify(formData))
+
+      $.ajax({
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+          message: encryptedData
+        },
+        url: '../../../Backend/src/RegisterPHP.php',
+        success: function (response) {
+          if (response === 'Data inserted successfuly') {
+            $(location).attr('href', '../Login/login.html')
+          } else {
+            alert('Erro inesperado. Por favor tente novamente')
+          }
+        }
+      })
+    }
   })
 })

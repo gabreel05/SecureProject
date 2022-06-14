@@ -1,28 +1,25 @@
 <?php
-    // include "database.php";
+    include "database.php";
     include "crypto.php";
 
     $message = decrypt($_POST["message"]);
-    echo $message["name"];
 
-    // echo $message;
+    $name = $message["name"];
+    $document = $message["document"];
+    $address = $message["address"];
+    $phone = $message["phone"];
+    $email = $message["email"];
+    $password = $message["password"];
+    $gender = $message["gender"];
+    $country = $message["country"];
 
-    // $name = $_POST["name"];
-    // $document = $_POST["document"];
-    // $address = $_POST["address"];
-    // $phone = $_POST["phone"];
-    // $email = $_POST["email"];
-    // $password = $_POST["passwordHash"];
-    // $gender = $_POST["gender"];
-    // $country = $_POST["country"];
+    $data = $conn -> query("INSERT INTO DB_SecureProject.TB_Users
+        (user_name, user_document, user_email, user_phone, user_gender, user_password, user_country)
+        VALUES ('$name', '$document', '$email', '$phone', '$gender', '$password', '$country')");
 
-    // $data = $conn -> query("INSERT INTO DB_SecureProject.TB_Users
-    //     (user_name, user_document, user_email, user_phone, user_gender, user_password, user_country)
-    //     VALUES ('$name', '$document', '$email', '$phone', '$gender', '$password', '$country')");
-
-    // if ($data) {
-    //     echo json_encode("Data inserted successfuly");
-    // } else {
-    //     echo json_encode("Data not inserted");
-    // }
+    if ($data) {
+        echo json_encode("Data inserted successfuly");
+    } else {
+        echo json_encode("Data not inserted");
+    }
 ?>

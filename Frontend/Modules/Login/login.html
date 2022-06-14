@@ -21,8 +21,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.2.1/jsencrypt.min.js"
+      integrity="sha512-hI8jEOQLtyzkIiWVygLAcKPradIhgXQUl8I3lk2FUmZ8sZNbSSdHHrWo5mrmsW1Aex+oFZ+UUK7EJTVwyjiFLA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="../../Style/styles.css" rel="stylesheet" />
     <script src="login.js"></script>
+    <script src="../../Crypto/Encrypt.js"></script>
   </head>
 
   <body style="margin-top: 2%">
@@ -67,6 +75,13 @@
 
               <input type="hidden" id="passwordHash" name="passwordHash" />
 
+              <div class="mb-3">
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6Lfv120gAAAAAHW9PslTOHdmBTLOG0DGfWKWgheO"
+                ></div>
+              </div>
+
               <div class="d-flex justify-content-center">
                 <button
                   type="button"
@@ -89,6 +104,8 @@
                   >Recuperar senha</a
                 >
               </p>
+
+              <h1 class="prof fst-italic lh-1 mb-4" id="noResult"></h1>
             </div>
           </form>
         </div>

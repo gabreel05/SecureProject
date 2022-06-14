@@ -48,8 +48,15 @@ $(document).ready(function () {
 
     const formData = {
       name: $('#name').val(),
-      document: $('#document').val()
+      document: $('#document').val(),
+      address: $('#address').val(),
+      phone: $('#phone').val(),
+      email: $('#email').val(),
+      password: $('#passwordHash').val(),
+      gender: $('input[name=gender]:checked').val(),
+      country: $('#country option:selected').val()
     }
+
     const encryptedData = encrypt(JSON.stringify(formData))
 
     $.ajax({

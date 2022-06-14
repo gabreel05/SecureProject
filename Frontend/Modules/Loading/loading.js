@@ -1,21 +1,26 @@
 $(document).ready(function () {
-  const creationTime = new Date();
-  const expirationTime = creationTime.setSeconds(
-    creationTime.getSeconds() + 10
-  );
+  const date = new Date()
+  const creationTime = date.getSeconds()
+  // const expirationTime = creationTime + 10
+
+  // const data = {
+  //   creationTime,
+  //   expirationTime
+  // }
+
+  // const encryptedData = encrypt(JSON.stringify(data))
 
   $.ajax({
-    type: "POST",
-    dataType: "JSON",
-    url: "../../../Backend/src/home.php",
-    data: {
-      creationDate: creationTime,
-      expirationDate: expirationTime,
-    },
+    type: 'GET',
+    dataType: 'JSON',
+    url: '../../../Backend/src/home.php',
+    // data: {
+    //   message: encryptedData
+    // },
     success: function (data) {
-      if (data.includes("Sessão criada")) {
-        window.location.href = "../Home/home.html";
+      if (data.includes('Sessão criada')) {
+        window.location.href = '../Home/home.html'
       }
-    },
-  });
-});
+    }
+  })
+})

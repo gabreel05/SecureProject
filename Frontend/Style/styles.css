@@ -24,7 +24,7 @@ video.bg-video {
 }
 
 .masthead:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -180,9 +180,6 @@ img {
   background-color: #2a5555cc !important;
 }
 
-.card {
-}
-
 .row {
   --bs-gutter-x: -0.5rem !important;
 }
@@ -213,7 +210,7 @@ img {
 .valid:before {
   position: relative;
   left: -35px;
-  content: "✔";
+  content: '✔';
 }
 
 .invalid {
@@ -223,5 +220,5 @@ img {
 .invalid:before {
   position: relative;
   left: -35px;
-  content: "✖";
+  content: '✖';
 }

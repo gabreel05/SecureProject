@@ -57,3 +57,11 @@ INSERT INTO TB_Vacancies (vacancy_brand, vacancy_description, vacancy_type_id) V
     "Security Champion - Hibrido",
     3
 );
+
+CREATE TABLE TB_User_Vacancies(
+    user_id INTEGER NOT NULL,
+    vacancy_id INTEGER NOT NULL,
+    PRIMARY KEY(user_id, vacancy_id),
+    FOREIGN KEY(user_id) REFERENCES TB_Users(user_id),
+    FOREIGN KEY(vacancy_id) REFERENCES TB_Vacancies(vacancy_id)
+);

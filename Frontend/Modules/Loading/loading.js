@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  const date = new Date()
-  const creationTime = date.getSeconds()
+  const date = new Date();
+  const creationTime = date.getSeconds();
   // const expirationTime = creationTime + 10
 
   // const data = {
@@ -19,8 +19,8 @@ $(document).ready(function () {
     // },
     success: function (data) {
       if (data.includes('Sessão criada')) {
-        window.location.href = '../Home/home.html'
+        window.location.href = '../Home/home.html';
       }
     }
-  })
-})
+  });
+});

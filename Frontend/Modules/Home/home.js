@@ -1,19 +1,19 @@
 $(document).ready(function () {
   $.ajax({
-    type: "POST",
-    dataType: "JSON",
-    url: "../../../Backend/src/hasSession.php",
+    type: 'POST',
+    dataType: 'JSON',
+    url: '../../../Backend/src/hasSession.php',
     success: function (data) {
-      if (data.includes("Não tem sessão")) {
-        window.location.href = "../Login/login.html"
+      if (data.includes('Não tem sessão')) {
+        window.location.href = '../Login/login.html';
       }
-    },
-  })
+    }
+  });
 
   $.ajax({
-    type: "GET",
-    dataType: "JSON",
-    url: "../../../Backend/src/getVacancies.php",
+    type: 'GET',
+    dataType: 'JSON',
+    url: '../../../Backend/src/getVacancies.php',
     success: function (data) {
       const cardVacancyContent =
         `<div class='card-body mx-auto'>` +
@@ -24,7 +24,7 @@ $(document).ready(function () {
         `<a href='#' class='btn btn-outline-secondary'>Ver vaga completa</a>` +
         `</div>` +
         `</div>` +
-        `</div>`
+        `</div>`;
 
       for (let i = 0; i < data.length; i++) {
         const cardVacancyContent =
@@ -36,23 +36,23 @@ $(document).ready(function () {
           `<a href='#' class='btn btn-outline-secondary'>Ver vaga completa</a>` +
           `</div>` +
           `</div>` +
-          `</div>`
+          `</div>`;
 
-        $("#cardVacancy").append(cardVacancyContent)
+        $('#cardVacancy').append(cardVacancyContent);
       }
-    },
-  })
+    }
+  });
 
-  $("#buttonLogout").click(function () {
+  $('#buttonLogout').click(function () {
     $.ajax({
-      type: "POST",
-      dataType: "JSON",
-      url: "../../../Backend/src/logout.php",
+      type: 'POST',
+      dataType: 'JSON',
+      url: '../../../Backend/src/logout.php',
       success: function (data) {
-        if (data.includes("Session destroyed")) {
-          window.location.href = "../Login/login.html"
+        if (data.includes('Session destroyed')) {
+          window.location.href = '../Login/login.html';
         }
-      },
-    })
-  })
-})
+      }
+    });
+  });
+});

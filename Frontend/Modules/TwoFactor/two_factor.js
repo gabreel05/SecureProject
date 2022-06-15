@@ -8,8 +8,8 @@ $(document).ready(function () {
       },
       url: '../../../Backend/src/twoFactorCode.php',
       onSuccess: function (data) {
-        console.log(data)
+        console.log(data);
       }
-    })
-  })
-})
+    });
+  });
+});

@@ -5,35 +5,35 @@ window.onload = function () {
   const upperCharacters = /[A-Z]/;
   const specialCharacters = /['"!@#$%¨&*()/;\.,<>º{}|\\]/;
 
-  const inputPassword = document.getElementById("newPassword");
+  const inputPassword = document.getElementById('newPassword');
 
   function handleValidatePassword() {
     if (!numbers.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter números");
+      alert('A sua senha precisa ter números');
 
       return false;
     }
 
     if (!minLenght.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter pelo menos 6 caracteres");
+      alert('A sua senha precisa ter pelo menos 6 caracteres');
 
       return false;
     }
 
     if (!lowerCharacters.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter caracteres minúsculos");
+      alert('A sua senha precisa ter caracteres minúsculos');
 
       return false;
     }
 
     if (!upperCharacters.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter caracteres maiúsculos");
+      alert('A sua senha precisa ter caracteres maiúsculos');
 
       return false;
     }
 
     if (!specialCharacters.exec(inputPassword.value)) {
-      alert("A sua senha precisa ter caracteres especiais");
+      alert('A sua senha precisa ter caracteres especiais');
 
       return false;
     }
@@ -41,9 +41,9 @@ window.onload = function () {
     return true;
   }
 
-  $("confirmButton").click(() => {
+  $('confirmButton').click(() => {
     if (handleValidatePassword()) {
-      window.location.href = "../Login/login.html";
+      window.location.href = '../Login/login.html';
     }
   });
 };

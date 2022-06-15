@@ -19,8 +19,8 @@ video.bg-video {
   justify-content: center;
 }
 
-.prof{
-  z-index: 9999!important;
+.prof {
+  z-index: 9999 !important;
 }
 
 .masthead:before {
@@ -109,7 +109,6 @@ video.bg-video {
 .fst-italic {
   font-style: italic !important;
   color: #f8f9fa !important;
-
 }
 
 .lh-1 {
@@ -126,20 +125,18 @@ video.bg-video {
   margin-bottom: 1.5rem !important;
 }
 
-
-div.card-body.mx-auto{
-	background-color: rgba(0, 0, 0, 0.85);
-    transform: skewX(0deg);
-    transform-origin: top right;
+div.card-body.mx-auto {
+  background-color: rgba(0, 0, 0, 0.85);
+  transform: skewX(0deg);
+  transform-origin: top right;
 }
 
 body {
   color: #adb5bd !important;
-  
 }
 
-.cssbody{
-  color: #dee2e6 !important;;
+.cssbody {
+  color: #dee2e6 !important;
 }
 
 .btn-primary {
@@ -174,19 +171,16 @@ img {
   min-width: 0;
   word-wrap: break-word;
 }
-  
-.buttonRegister{
+
+.buttonRegister {
   float: right;
 }
 
 .card-header {
-
   background-color: #2a5555cc !important;
 }
 
 .card {
-
-  
 }
 
 .row {

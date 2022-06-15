@@ -1,0 +1,23 @@
+version: "3.0"
+
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: DB_SecureProject
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+    ports:
+      - "9906:3306"
+  web:
+    image: php:7.2.2-apache
+    container_name: web
+    depends_on:
+      - database
+    volumes:
+      - ./php/:/var/www/html
+    ports:
+      - "8100:80"
+    stdin_open: true
+    tty: true

@@ -13,3 +13,47 @@ CREATE TABLE IF NOT EXISTS DB_SecureProject.TB_Users(
     user_country VARCHAR(255) NOT NULL,
     CONSTRAINT check_gender CHECK (user_gender = "Masculino" OR user_gender = "Feminino")
 );
+
+CREATE TABLE TB_Vacancy_types(
+	vacancy_type_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    vacancy_type_name VARCHAR(255)
+);
+
+INSERT INTO TB_Vacancy_types(vacancy_type_name) VALUES ("Desenvolvimento");
+INSERT INTO TB_Vacancy_types(vacancy_type_name) VALUES ("Design");
+INSERT INTO TB_Vacancy_types(vacancy_type_name) VALUES ("Segurança");
+
+CREATE TABLE TB_Vacancies(
+	vacancy_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    vacancy_brand VARCHAR(255) NOT NULL,
+    vacancy_description VARCHAR(255) NOT NULL,
+    vacancy_type_id INTEGER NOT NULL,
+    FOREIGN KEY(vacancy_type_id) REFERENCES TB_Vacancy_types(vacancy_type_id)
+);
+
+INSERT INTO TB_Vacancies (vacancy_brand, vacancy_description, vacancy_type_id) VALUES(
+	"BRQ",
+    "Desenvolvedor Java Pleno - Home office",
+    1
+);
+INSERT INTO TB_Vacancies (vacancy_brand, vacancy_description, vacancy_type_id) VALUES(
+	"TOTVS",
+    "Designer grafico/UX - Hibrido",
+    2
+);
+INSERT INTO TB_Vacancies (vacancy_brand, vacancy_description, vacancy_type_id) VALUES(
+	"ExxonMobil",
+    "Gerente de projeto sustentação - Hibrido",
+    3
+);
+INSERT INTO TB_Vacancies (vacancy_brand, vacancy_description, vacancy_type_id) VALUES(
+	"VETEX",
+    "Analista de sistemas desenvolvimento - Remoto",
+    1
+);
+
+INSERT INTO TB_Vacancies (vacancy_brand, vacancy_description, vacancy_type_id) VALUES(
+	"Compass.UOL",
+    "Security Champion - Hibrido",
+    3
+);

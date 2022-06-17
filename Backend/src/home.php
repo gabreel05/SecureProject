@@ -1,16 +1,6 @@
 <?php
-    // include "crypto.php";
-
-    // $message = decrypt($_POST["message"]);
-
-    // echo $message["creationTime"];
-    // echo("\n" . $message["expirationTime"]);
-
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
-        
-        // $creationTime = $message["creationTime"];
-        // $expirationTime = $message["expirationTime"];
         
         $_SESSION['session_id'] = session_id();
         $_SESSION['session_name'] = "Palestrinhas";

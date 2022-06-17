@@ -1,7 +1,7 @@
 <?php
     include "database.php";
 
-    $stmt = $conn -> prepare("SELECT TB_Vacancies.vacancy_brand, TB_Vacancies.vacancy_description 
+    $stmt = $conn -> prepare("SELECT TB_Vacancies.vacancy_id, TB_Vacancies.vacancy_brand, TB_Vacancies.vacancy_description 
         FROM DB_SecureProject.TB_Vacancies ORDER BY vacancy_creation DESC");
     $stmt -> execute();
 

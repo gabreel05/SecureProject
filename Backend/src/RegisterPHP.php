@@ -11,11 +11,11 @@
     $email = $message["email"];
     $password = $message["password"];
     $gender = $message["gender"];
-    $country = $message["country"];
+    $vacancyType = $message["vacancyType"];
 
     $data = $conn -> query("INSERT INTO DB_SecureProject.TB_Users
-        (user_name, user_document, user_email, user_phone, user_gender, user_password, user_country)
-        VALUES ('$name', '$document', '$email', '$phone', '$gender', '$password', '$country')");
+        (user_name, user_document, user_email, user_phone, user_gender, user_password, vacancy_type_id)
+        VALUES ('$name', '$document', '$email', '$phone', '$gender', '$password', '$vacancyType')");
 
     if ($data) {
         echo json_encode("Data inserted successfuly");

@@ -52,7 +52,7 @@ $(document).ready(function () {
         const cardRecommendedVacancyContent =
           `<h5 class='card-title vacancyBrand'>${data[i].vacancy_brand}</h5>` +
           `<p class='card-text vacancyDescription'>${data[i].vacancy_description}</p>` +
-          `<a href='#' class='btn btn-outline-secondary' id='registerForRecommendedVacancy${i}'>Se inscrever para vaga</a>`
+          `<button href='#' class='btn btn-outline-secondary' id='registerForRecommendedVacancy${i}'>Se inscrever para vaga</button>`
 
         $('#cardRecommendedVacancy').append(cardRecommendedVacancyContent)
 

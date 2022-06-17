@@ -6,7 +6,6 @@
     $stmt -> execute();
 
     $result = $stmt -> fetchAll();
-    $count = count($result);
 
     echo json_encode($result);
 ?>

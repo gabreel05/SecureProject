@@ -57,7 +57,22 @@ $(document).ready(function () {
         $('#cardRecommendedVacancy').append(cardRecommendedVacancyContent)
 
         $(`#registerForRecommendedVacancy${i}`).click(function () {
-          console.log(`Cliquei ${i}`)
+          $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            url: '../../../Backend/src/registerForVacancy.php',
+            data: {
+              vacancy: data[i].vacancy_id
+            },
+            success: function (data) {
+              if (data === 'Data inserted successfuly') {
+                $(`#registerForRecommendedVacancy${i}`).text(
+                  'Inscrito com sucesso'
+                )
+                $(`#registerForRecommendedVacancy${i}`).prop('disabled', true)
+              }
+            }
+          })
         })
       }
     }

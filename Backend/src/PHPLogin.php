@@ -2,6 +2,8 @@
     include "crypto.php";
     include "database.php";
 
+    session_start();
+
     $message = decrypt($_POST["message"]);
 
     $email = $message["email"];
@@ -12,11 +14,13 @@
 
     $response = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$captcha));
 
-    $stmt = $conn -> prepare("SELECT TB_Users.user_email, TB_Users.user_password, TB_Users.user_name 
+    $stmt = $conn -> prepare("SELECT TB_Users.user_id, TB_Users.user_email, TB_Users.user_password, TB_Users.user_name 
         FROM DB_SecureProject.TB_Users WHERE user_email = :email AND user_password = :password");
     $stmt -> execute(array("email" => $email, "password" => $password));
 
     $result = $stmt -> fetchAll();
+
+    $_SESSION["user"] = $result[0]["user_id"];
 
     if ($response -> success == true) {
         if (count($result)) {

@@ -21,18 +21,22 @@ $(document).ready(function () {
           `<p class='card-text vacancyDescription'>${data[i].vacancy_description}</p>` +
           `<a href='#' class='btn btn-outline-secondary'>Se inscrever para vaga</a>`
 
+        $('#cardVacancy').append(cardVacancyContent)
+      }
+    }
+  })
+
+  $.ajax({
+    type: 'GET',
+    dataType: 'JSON',
+    url: '../../../Backend/src/getRecommendedVacancies.php',
+    success: function (data) {
+      for (let i = 0; i < data.length; i++) {
         const cardRecommendedVacancyContent =
-          `<div class='card-body mx-auto'>` +
-          `<div class='col-md-12'>` +
-          `<div class='card-body'>` +
           `<h5 class='card-title vacancyBrand'>${data[i].vacancy_brand}</h5>` +
           `<p class='card-text vacancyDescription'>${data[i].vacancy_description}</p>` +
-          `<a href='#' class='btn btn-outline-secondary'>Se inscrever para vaga</a>` +
-          `</div>` +
-          `</div>` +
-          `</div>`
+          `<a href='#' class='btn btn-outline-secondary'>Se inscrever para vaga</a>`
 
-        $('#cardVacancy').append(cardVacancyContent)
         $('#cardRecommendedVacancy').append(cardRecommendedVacancyContent)
       }
     }

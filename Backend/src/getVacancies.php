@@ -5,7 +5,7 @@
         FROM DB_SecureProject.TB_Vacancies 
         WHERE TB_Vacancies.vacancy_id NOT IN 
         (SELECT TB_Vacancies.vacancy_id 
-            FROM TB_Vacancies, TB_User_Vacancies 
+            FROM DB_SecureProject.TB_Vacancies, DB_SecureProject.TB_User_Vacancies 
             WHERE TB_Vacancies.vacancy_id = TB_User_Vacancies.vacancy_id)
         ORDER BY vacancy_creation DESC");
     $stmt -> execute();

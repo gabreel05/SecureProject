@@ -80,6 +80,25 @@ $(document).ready(function () {
     })
   })
 
+  $('#userVacanciesLink').click(function () {
+    $.ajax({
+      type: 'GET',
+      dataType: 'JSON',
+      url: '../../../Backend/src/getUserVacancies.php',
+      success: function (data) {
+        $('#cardVacancy').html('')
+        $('#cardTitle').html('Suas vagas')
+        for (let i = 0; i < data.length; i++) {
+          const cardVacancyContent =
+            `<h5 class='card-title vacancyBrand'>${data[i].vacancy_brand}</h5>` +
+            `<p class='card-text vacancyDescription'>${data[i].vacancy_description}</p>`
+
+          $('#cardVacancy').append(cardVacancyContent)
+        }
+      }
+    })
+  })
+
   $('#buttonLogout').click(function () {
     $.ajax({
       type: 'POST',

@@ -66,7 +66,6 @@ INSERT INTO TB_Vacancies (vacancy_brand, vacancy_description, vacancy_creation, 
     3
 );
 
-DROP TABLE TB_User_Vacancies;
 CREATE TABLE IF NOT EXISTS TB_User_Vacancies(
     user_id INTEGER NOT NULL,
     vacancy_id INTEGER NOT NULL,
@@ -74,20 +73,3 @@ CREATE TABLE IF NOT EXISTS TB_User_Vacancies(
     FOREIGN KEY(user_id) REFERENCES TB_Users(user_id),
     FOREIGN KEY(vacancy_id) REFERENCES TB_Vacancies(vacancy_id)
 );
-
-SELECT * FROM TB_User_Vacancies;
-
-SELECT DISTINCT TB_Vacancies.vacancy_brand, TB_Vacancies.vacancy_description
-	FROM TB_Vacancies, TB_Users
-    WHERE TB_Vacancies.vacancy_type_id = TB_Users.vacancy_type_id
-    AND TB_Users.user_id = 7;
-
-SELECT TB_Vacancies.vacancy_id, TB_Vacancies.vacancy_brand, TB_Vacancies.vacancy_description 
-        FROM DB_SecureProject.TB_Vacancies 
-        WHERE TB_Vacancies.vacancy_id NOT IN 
-        (SELECT TB_Vacancies.vacancy_id 
-			FROM TB_Vacancies, TB_User_Vacancies 
-            WHERE TB_Vacancies.vacancy_id = TB_User_Vacancies.vacancy_id)
-            ORDER BY vacancy_creation DESC;
-    
-SELECT * FROM TB_Users;

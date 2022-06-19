@@ -3,7 +3,7 @@
     $key = $data["key"];
     $iv = $data["iv"];
 
-    $content_key = file_get_contents("../keys/private_key.pem");
+    $content_key = file_get_contents("../keys/private:key.pem");
 
     $private_key = openssl_pkey_get_private($content_key);
 

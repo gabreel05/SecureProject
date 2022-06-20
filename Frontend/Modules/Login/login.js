@@ -13,7 +13,7 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       dataType: 'JSON',
-      url: '../../../Backend/src/PHPLogin.php',
+      url: '../../../Backend/src/makePassword.php',
       data: {
         message: encryptedData
       },
